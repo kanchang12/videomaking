@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Ad Generator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; margin-bottom: 30px; font-size: 2.5em; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #555; }
+        input, textarea, select { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; transition: border-color 0.3s; }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: #667eea; }
+        textarea { height: 120px; resize: vertical; }
+        button { width: 100%; padding: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: 600; cursor: pointer; transition: transform 0.2s; }
+        button:hover { transform: translateY(-2px); }
+        button:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+        .status { margin-top: 20px; padding: 15px; border-radius: 8px; display: none; }
+        .status.info { background: #e8f5e8; color: #2d5a2d; border: 1px solid #4caf50; }
+        .status.error { background: #ffeaea; color: #721c24; border: 1px solid #f44336; }
+        .progress { width: 100%; height: 6px; background: #f0f0f0; border-radius: 3px; overflow: hidden; margin-top: 10px; }
+        .progress-bar { height: 100%; background: linear-gradient(90deg, #4caf50, #45a049); width: 0%; transition: width 0.5s ease; }
+        .script-preview { margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #667eea; display: none; }
+        .download-section { text-align: center; margin-top: 20px; display: none; }
+        .download-link { display: inline-block; padding: 12px 24px; background: #4caf50; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: background 0.3s; }
+        .download-link:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 AI Video Ad Generator</h1>
+        
+        <form id="videoForm">
+            <div class="form-group">
+                <label for="product_name">Product Name</label>
+                <input type="text" id="product_name" name="product_name" required placeholder="Enter your product name">
+            </div>
+            
+            <div class="form-group">
+                <label for="details">Product Details</label>
+                <textarea id="details" name="details" required placeholder="Describe your product's key features and benefits"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="tone">Tone</label>
+                <select id="tone" name="tone" required>
+                    <option value="professional">Professional</option>
+                    <option value="casual">Casual</option>
+                    <option value="energetic">Energetic</option>
+                    <option value="friendly">Friendly</option>
+                    <option value="luxurious">Luxurious</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="audience">Target Audience</label>
+                <input type="text" id="audience" name="audience" required placeholder="Who is your target audience?">
+            </div>
+            
+            <div class="form-group">
+                <label for="cta">Call to Action</label>
+                <input type="text" id="cta" name="cta" required placeholder="What action should viewers take?">
+            </div>
+            
+            <button type="submit" id="generateBtn">Generate Video Advertisement</button>
+        </form>
+        
+        <div id="status" class="status">
+            <div id="statusText"></div>
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+        
+        <div id="scriptPreview" class="script-preview">
+            <h3>Generated Script:</h3>
+            <div id="scriptText"></div>
+        </div>
+        
+        <div id="downloadSection" class="download-section">
+            <a href="#" id="downloadLink" class="download-link">📥 Download Your Video</a>
+        </div>
+    </div>
+
+    <script>
+        let currentJobId = null;
+        let statusInterval = null;
+
+        document.getElementById('videoForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+            
+            document.getElementById('generateBtn').disabled = true;
+            document.getElementById('generateBtn').textContent = 'Generating...';
+            document.getElementById('scriptPreview').style.display = 'none';
+            document.getElementById('downloadSection').style.display = 'none';
+            
+            showStatus('Starting video generation...', 'info');
+            updateProgress(10);
+            
+            try {
+                const response = await fetch('/generate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                currentJobId = result.job_id;
+                statusInterval = setInterval(checkStatus, 1000);
+                
+            } catch (error) {
+                showStatus('Error: ' + error.message, 'error');
+                resetForm();
+            }
+        });
+
+        async function checkStatus() {
+            try {
+                const response = await fetch(`/status/${currentJobId}`);
+                const status = await response.json();
+                
+                switch(status.status) {
+                    case 'starting':
+                        showStatus('Initializing AI systems...', 'info');
+                        updateProgress(20);
+                        break;
+                    case 'generating_script':
+                        showStatus('AI is writing your script...', 'info');
+                        updateProgress(40);
+                        break;
+                    case 'generating_audio':
+                        showStatus('Converting script to speech...', 'info');
+                        updateProgress(60);
+                        break;
+                    case 'creating_video':
+                        showStatus('Creating your video...', 'info');
+                        updateProgress(80);
+                        break;
+                    case 'completed':
+                        showStatus('Video generated successfully!', 'info');
+                        updateProgress(100);
+                        
+                        if (status.script) {
+                            document.getElementById('scriptText').textContent = status.script;
+                            document.getElementById('scriptPreview').style.display = 'block';
+                        }
+                        
+                        document.getElementById('downloadLink').href = `/download/${currentJobId}`;
+                        document.getElementById('downloadSection').style.display = 'block';
+                        
+                        clearInterval(statusInterval);
+                        resetForm();
+                        break;
+                    case 'failed':
+                        showStatus('Generation failed: ' + (status.error || 'Unknown error'), 'error');
+                        clearInterval(statusInterval);
+                        resetForm();
+                        break;
+                }
+            } catch (error) {
+                showStatus('Error checking status: ' + error.message, 'error');
+                clearInterval(statusInterval);
+                resetForm();
+            }
+        }
+
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('status');
+            const statusText = document.getElementById('statusText');
+            
+            statusText.textContent = message;
+            statusDiv.className = `status ${type}`;
+            statusDiv.style.display = 'block';
+        }
+
+        function updateProgress(percentage) {
+            document.getElementById('progressBar').style.width = percentage + '%';
+        }
+
+        function resetForm() {
+            document.getElementById('generateBtn').disabled = false;
+            document.getElementById('generateBtn').textContent = 'Generate Video Advertisement';
+        }
+    </script>
+</body>
+</html>
