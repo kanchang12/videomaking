@@ -1,0 +1,6 @@
+google-generativeai
+
+Flask==2.3.3
+
+google-cloud-texttospeech==2.14.1
+requests==2.31.0
