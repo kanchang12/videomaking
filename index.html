@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmartPenny — AI video production, made in days not weeks</title>
+<meta name="description" content="Cinematic ads, product explainers, pitch films and music videos made with AI. No crew, no location, no kit hire. Made in Leeds by Kanchan Ghosh. Free concept cut, films from £399.">
+<meta property="og:title" content="SmartPenny — AI video production">
+<meta property="og:description" content="Cinematic ads, product explainers, pitch films and music videos made with AI. Free concept cut, films from £399.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://smartpenny.online/">
+<link rel="canonical" href="https://smartpenny.online/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Public+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "SmartPenny",
+  "description": "AI video production for brands, software companies, founders and musicians.",
+  "url": "https://smartpenny.online/",
+  "areaServed": "Worldwide",
+  "provider": {
+    "@type": "Organization",
+    "name": "LOVEUAD LTD",
+    "address": { "@type": "PostalAddress", "addressLocality": "Leeds", "addressCountry": "GB" }
+  },
+  "priceRange": "£399-£1499"
+}
+</script>
+<style>
+  :root{
+    --paper:#FCF9F3;
+    --paper-2:#F2EADC;
+    --card:#FFFDF9;
+    --ink:#16140E;
+    --ink-soft:#5E5744;
+    --line:#DED3BE;
+    --ochre:#A8620A;
+    --forest:#22503D;
+    --radius:2px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{animation:none!important;transition:none!important}}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Public Sans',system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:inherit}
+  ::selection{background:var(--ochre);color:var(--paper)}
+  :focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+
+  /* ---------- slate bar ---------- */
+  .slate{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:9px 0;
+    position:sticky;top:0;z-index:50;
+  }
+  .slate .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .slate a{text-decoration:none;opacity:.75}
+  .slate a:hover{opacity:1;color:#F0B54A}
+  .slate nav{display:flex;gap:18px}
+  .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#7CC08A;margin-right:7px;vertical-align:middle}
+
+  /* ---------- hero ---------- */
+  header.hero{padding:76px 0 0;border-bottom:1px solid var(--line)}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ochre);margin-bottom:22px;
+  }
+  h1{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:900;
+    font-size:clamp(2.6rem,7vw,5.1rem);
+    line-height:.97;
+    letter-spacing:-.022em;
+    max-width:16ch;
+  }
+  h1 em{font-style:italic;font-weight:400;color:var(--ochre)}
+  .lede{
+    margin-top:26px;max-width:56ch;font-size:1.16rem;color:var(--ink-soft);
+  }
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:34px 0 60px}
+  .btn{
+    display:inline-block;padding:15px 30px;text-decoration:none;font-weight:700;
+    border-radius:var(--radius);font-size:16px;border:1.5px solid var(--ink);
+    transition:transform .12s ease, background .12s ease, color .12s ease;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:var(--ochre);border-color:var(--ochre)}
+  .btn-ghost{background:transparent;color:var(--ink)}
+  .btn-ghost:hover{background:var(--paper-2)}
+
+  /* ---------- receipts ticker (signature) ---------- */
+  .receipts{
+    border-top:1px solid var(--line);
+    background:var(--paper-2);
+    overflow:hidden;
+    position:relative;
+  }
+  .receipts-label{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--ink-soft);
+    padding:12px 24px 0;max-width:var(--maxw);margin:0 auto;
+  }
+  .track{display:flex;width:max-content;animation:roll 46s linear infinite;padding:12px 0 16px}
+  .receipts:hover .track{animation-play-state:paused}
+  @keyframes roll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .rcpt{
+    display:flex;align-items:baseline;gap:12px;padding:0 26px;
+    border-right:1px solid var(--line);white-space:nowrap;
+  }
+  .rcpt .n{
+    font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;color:var(--forest);
+    letter-spacing:-.02em;
+  }
+  .rcpt .t{font-size:14px;color:var(--ink-soft)}
+  @media (prefers-reduced-motion:reduce){.track{animation:none;flex-wrap:wrap;width:auto}}
+
+  /* ---------- sections ---------- */
+  section{padding:84px 0;border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:12px;flex-wrap:wrap}
+  h2{
+    font-family:'Fraunces',Georgia,serif;font-weight:900;
+    font-size:clamp(1.9rem,3.6vw,2.9rem);letter-spacing:-.02em;line-height:1.05;
+  }
+  .sec-note{max-width:60ch;color:var(--ink-soft);margin-bottom:44px}
+
+  /* ---------- categories ---------- */
+  .cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .cat{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px 24px 26px;display:flex;flex-direction:column;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .cat:hover{border-color:var(--ochre);transform:translateY(-3px)}
+  .cat h3{font-family:'Fraunces',serif;font-size:1.32rem;font-weight:600;margin-bottom:10px;line-height:1.15}
+  .cat p{font-size:15px;color:var(--ink-soft);flex:1}
+  .cat .for{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ochre);margin-top:18px;
+  }
+
+  /* ---------- work ---------- */
+  .work{border-top:1px solid var(--line)}
+  .row{
+    display:grid;grid-template-columns:1fr auto auto;gap:20px;align-items:center;
+    padding:18px 4px;border-bottom:1px solid var(--line);text-decoration:none;
+    transition:background .12s ease,padding .12s ease;
+  }
+  .row:hover{background:var(--paper-2);padding-left:12px}
+  .row .title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600}
+  .row .kind{font-size:13px;color:var(--ink-soft)}
+  .row .views{
+    font-family:'IBM Plex Mono',monospace;font-size:14px;color:var(--forest);
+    font-weight:500;text-align:right;min-width:64px;
+  }
+  .row .go{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ochre)}
+  @media(max-width:620px){
+    .row{grid-template-columns:1fr auto}
+    .row .go{display:none}
+  }
+
+  /* ---------- pricing ---------- */
+  .prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:18px;align-items:stretch}
+  .price{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 26px;display:flex;flex-direction:column;
+  }
+  .price.pick{border:2px solid var(--ink);position:relative}
+  .price.pick::after{
+    content:'MOST ORDERED';position:absolute;top:-11px;left:24px;background:var(--ink);
+    color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:10px;
+    letter-spacing:.14em;padding:4px 10px;
+  }
+  .price h3{font-family:'Fraunces',serif;font-size:1.28rem;font-weight:600}
+  .amount{
+    font-family:'Fraunces',serif;font-weight:900;font-size:2.7rem;letter-spacing:-.03em;
+    margin:14px 0 4px;line-height:1;
+  }
+  .amount span{font-size:.95rem;font-weight:400;color:var(--ink-soft);font-family:'Public Sans',sans-serif}
+  .price ul{list-style:none;margin:20px 0 26px;flex:1}
+  .price li{
+    font-size:15px;padding:8px 0 8px 22px;position:relative;color:var(--ink-soft);
+    border-top:1px solid var(--line);
+  }
+  .price li:first-child{border-top:none}
+  .price li::before{content:'—';position:absolute;left:0;color:var(--ochre)}
+  .free{
+    display:flex;align-items:center;gap:28px;flex-wrap:wrap;
+    background:var(--forest);color:#F3EEE2;
+    border-radius:var(--radius);padding:30px 30px;margin-bottom:22px;
+  }
+  .free-tag{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:#F0B54A;white-space:nowrap;
+  }
+  .free-body{flex:1;min-width:260px}
+  .free-body h3{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:600;margin-bottom:8px}
+  .free-body p{font-size:15px;opacity:.85;max-width:62ch}
+  .free .btn{border-color:#F0B54A;background:#F0B54A;color:var(--ink);white-space:nowrap}
+  .free .btn:hover{background:#FFF;border-color:#FFF}
+
+  .addons{
+    margin-top:26px;padding:22px 24px;background:var(--paper-2);
+    border:1px solid var(--line);border-radius:var(--radius);
+  }
+  .addons.ppp{margin-top:14px;background:var(--card)}
+  .addons strong{font-family:'Fraunces',serif;font-size:1.05rem}
+  .addons ul{list-style:none;margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:6px}
+  .addons li{font-size:14.5px;color:var(--ink-soft)}
+  .addons li b{color:var(--ink);font-family:'IBM Plex Mono',monospace;font-size:13px}
+  .fineprint{margin-top:18px;font-size:14px;color:var(--ink-soft)}
+
+  /* ---------- form ---------- */
+  #brief{background:var(--paper-2)}
+  form{
+    max-width:760px;background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:34px 30px;
+  }
+  .field{margin-bottom:20px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:600px){.grid2{grid-template-columns:1fr}}
+  label{
+    display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;
+    letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:7px;
+  }
+  input,select,textarea{
+    width:100%;padding:13px 14px;font-family:'Public Sans',sans-serif;font-size:16px;
+    background:var(--paper);color:var(--ink);border:1.5px solid var(--line);
+    border-radius:var(--radius);
+  }
+  input:focus,select:focus,textarea:focus{border-color:var(--ochre);outline:none}
+  textarea{min-height:130px;resize:vertical}
+  form .btn{width:100%;cursor:pointer;font-family:'Public Sans',sans-serif;margin-top:6px}
+  .formnote{font-size:13.5px;color:var(--ink-soft);margin-top:14px;text-align:center}
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--ink);color:var(--paper-2);padding:44px 0;
+    font-size:14px;
+  }
+  footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+  footer a{color:#F0B54A}
+  .co{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.08em;opacity:.62}
+</style>
+</head>
+<body>
+
+<div class="slate">
+  <div class="wrap">
+    <span><span class="dot"></span>SmartPenny — Leeds, UK</span>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#categories">What we make</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#brief">Start a video</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">AI video production · no crew · no location · no kit hire</p>
+    <h1>Your ad, shot without a <em>camera</em>.</h1>
+    <p class="lede">Cinematic brand films, product explainers, pitch videos and music videos — made with AI, written by a human, delivered in days. One person, 100+ films made, real audiences. Fixed price, no retainer, no agency.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#brief">Get a free concept cut</a>
+      <a class="btn btn-ghost" href="#work">See the work</a>
+    </div>
+  </div>
+  <div class="receipts">
+    <p class="receipts-label">Films made · real view counts, not promises</p>
+    <div class="track">
+      <div class="rcpt"><span class="n">12K</span><span class="t">Mock Interview for ₹99</span></div>
+      <div class="rcpt"><span class="n">1.9K</span><span class="t">The Last Diary — audio drama</span></div>
+      <div class="rcpt"><span class="n">1.4K</span><span class="t">This Is Leeds — city film</span></div>
+      <div class="rcpt"><span class="n">390</span><span class="t">Will You Come — music video</span></div>
+      <div class="rcpt"><span class="n">105</span><span class="t">HATE — Musicbed Challenge</span></div>
+      <div class="rcpt"><span class="n">58</span><span class="t">ROBBIE: LEGEND</span></div>
+      <div class="rcpt"><span class="n">57</span><span class="t">পরিযায়ী — Porijayi Pt. 3</span></div>
+      <div class="rcpt"><span class="n">52</span><span class="t">WritenDraw — product film</span></div>
+      <div class="rcpt"><span class="n">45</span><span class="t">PII Shield — SaaS explainer</span></div>
+      <div class="rcpt"><span class="n">36</span><span class="t">AI Voice Receptionist demo</span></div>
+      <!-- duplicate set for seamless loop -->
+      <div class="rcpt"><span class="n">12K</span><span class="t">Mock Interview for ₹99</span></div>
+      <div class="rcpt"><span class="n">1.9K</span><span class="t">The Last Diary — audio drama</span></div>
+      <div class="rcpt"><span class="n">1.4K</span><span class="t">This Is Leeds — city film</span></div>
+      <div class="rcpt"><span class="n">390</span><span class="t">Will You Come — music video</span></div>
+      <div class="rcpt"><span class="n">105</span><span class="t">HATE — Musicbed Challenge</span></div>
+      <div class="rcpt"><span class="n">58</span><span class="t">ROBBIE: LEGEND</span></div>
+      <div class="rcpt"><span class="n">57</span><span class="t">পরিযায়ী — Porijayi Pt. 3</span></div>
+      <div class="rcpt"><span class="n">52</span><span class="t">WritenDraw — product film</span></div>
+      <div class="rcpt"><span class="n">45</span><span class="t">PII Shield — SaaS explainer</span></div>
+      <div class="rcpt"><span class="n">36</span><span class="t">AI Voice Receptionist demo</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="categories">
+  <div class="wrap">
+    <div class="sec-head"><h2>What we make</h2></div>
+    <p class="sec-note">Four things, done properly. If what you need isn't here, say it in the brief and you'll get a straight yes or no.</p>
+    <div class="cats">
+      <div class="cat">
+        <h3>Brand &amp; place films</h3>
+        <p>Cinematic 30–60 second films with the look of a location shoot. Script, shots, voiceover, score, grade. No permits, no crew, no travel.</p>
+        <p class="for">Brands · councils · property · tourism</p>
+      </div>
+      <div class="cat">
+        <h3>Product &amp; SaaS explainers</h3>
+        <p>Your software, explained so a buyer gets it in ninety seconds. Real UI capture cut with AI footage, written by someone who has shipped software.</p>
+        <p class="for">SaaS · apps · agencies</p>
+      </div>
+      <div class="cat">
+        <h3>Pitch &amp; funding films</h3>
+        <p>The film investors and grant panels actually watch. Problem, proof, product, ask — in the order that gets a second meeting.</p>
+        <p class="for">Founders · hackathons · grant bids</p>
+      </div>
+      <div class="cat">
+        <h3>Music &amp; story films</h3>
+        <p>Music videos, trailers, audio drama and short narrative. Pacing, sound design and score included, not bolted on afterwards.</p>
+        <p class="for">Musicians · labels · indie creators</p>
+      </div>
+      <div class="cat">
+        <h3>Language versions</h3>
+        <p>Your existing ad, remade in Hindi, Bengali, Tamil, Telugu, Kannada or Spanish. Native script and native voice — not a subtitle track.</p>
+        <p class="for">Anyone selling outside English</p>
+      </div>
+      <div class="cat">
+        <h3>Social cutdowns</h3>
+        <p>One film, cut vertical for Reels, Shorts and TikTok with hooks that survive the first two seconds. Ordered alongside any film above.</p>
+        <p class="for">Add-on to any package</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head"><h2>The work</h2></div>
+    <p class="sec-note">Every film below was made by one person, with AI, and put in front of a real audience. View counts are as published on YouTube.</p>
+    <div class="work">
+      <a class="row" href="https://www.youtube.com/watch?v=nNc2qdVl9sY" target="_blank" rel="noopener">
+        <span><span class="title">Every City Has a Story. This Is Leeds.</span><br><span class="kind">Brand &amp; place film</span></span>
+        <span class="views">1.4K</span><span class="go">Watch →</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/@kanchanghosh1319/videos" target="_blank" rel="noopener">
+        <span><span class="title">Get a Mock Interview for Only ₹99</span><br><span class="kind">Direct-response ad · Hindi/English</span></span>
+        <span class="views">12K</span><span class="go">Watch →</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/@kanchanghosh1319/videos" target="_blank" rel="noopener">
+        <span><span class="title">The Last Diary</span><br><span class="kind">Long-form audio drama</span></span>
+        <span class="views">1.9K</span><span class="go">Watch →</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/@kanchanghosh1319/videos" target="_blank" rel="noopener">
+        <span><span class="title">Will You Come</span><br><span class="kind">Music video</span></span>
+        <span class="views">390</span><span class="go">Watch →</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/@kanchanghosh1319/videos" target="_blank" rel="noopener">
+        <span><span class="title">HATE — Musicbed Challenge 2026</span><br><span class="kind">Music &amp; story film</span></span>
+        <span class="views">105</span><span class="go">Watch →</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/@kanchanghosh1319/videos" target="_blank" rel="noopener">
+        <span><span class="title">COCA-COLA: Timeless Taste</span><br><span class="kind">Spec brand film · Runway AIFF 2026</span></span>
+        <span class="views">26</span><span class="go">Watch →</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/watch?v=VEx66aR_DWQ" target="_blank" rel="noopener">
+        <span><span class="title">W3Dial — AI Voice Agents</span><br><span class="kind">Product explainer</span></span>
+        <span class="views">20</span><span class="go">Watch →</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/@kanchanghosh1319/videos" target="_blank" rel="noopener">
+        <span><span class="title">WritenDraw — Voice-First Developer Simulation</span><br><span class="kind">Product explainer</span></span>
+        <span class="views">52</span><span class="go">Watch →</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/@kanchanghosh1319/videos" target="_blank" rel="noopener">
+        <span><span class="title">PII Shield — Automatic Privacy Protection for LLMs</span><br><span class="kind">SaaS explainer</span></span>
+        <span class="views">45</span><span class="go">Watch →</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/@kanchanghosh1319/videos" target="_blank" rel="noopener">
+        <span><span class="title">পরিযায়ী — Porijayi, Part 3</span><br><span class="kind">Bengali narrative · language version</span></span>
+        <span class="views">57</span><span class="go">Watch →</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/@kanchanghosh1319/videos" target="_blank" rel="noopener">
+        <span><span class="title">"Amma, hog beri!" — The Mother Who Debugged the City</span><br><span class="kind">Kannada narrative · language version</span></span>
+        <span class="views">36</span><span class="go">Watch →</span>
+      </a>
+      <a class="row" href="https://www.youtube.com/@kanchanghosh1319" target="_blank" rel="noopener">
+        <span><span class="title">Full channel — 100+ films</span><br><span class="kind">Everything, unedited list</span></span>
+        <span class="views">↗</span><span class="go">Open →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head"><h2>Pricing</h2></div>
+    <p class="sec-note">Fixed price, agreed before work starts. Half up front, half on delivery. No hourly billing, no scope creep, no retainer. An agency charges four thousand for the middle option.</p>
+
+    <div class="free">
+      <div class="free-tag">Start here · free</div>
+      <div class="free-body">
+        <h3>A concept cut, before you pay anything</h3>
+        <p>Send your product page. You get back a 15-second concept cut made from it — real footage, real voiceover, yours to keep whether or not you hire me. No card, no call, no pitch deck.</p>
+      </div>
+      <a class="btn btn-primary" href="#brief">Get the free cut</a>
+    </div>
+
+    <div class="prices">
+      <div class="price">
+        <h3>Product film</h3>
+        <div class="amount">£399 <span>per film</span></div>
+        <ul>
+          <li>60–90 seconds, landscape + vertical cut</li>
+          <li>Script, storyboard, UI capture, AI footage</li>
+          <li>Voiceover, sound design, music</li>
+          <li>2 rounds of changes</li>
+          <li>Delivered in 7 days</li>
+        </ul>
+        <a class="btn btn-ghost" href="#brief">Order this</a>
+      </div>
+      <div class="price">
+        <h3>Cinematic film</h3>
+        <div class="amount">£799 <span>per film</span></div>
+        <ul>
+          <li>Up to 2 minutes, full narrative treatment</li>
+          <li>Original score and colour grade</li>
+          <li>Three social cutdowns included</li>
+          <li>3 rounds of changes</li>
+          <li>Delivered in 10–14 days</li>
+        </ul>
+        <a class="btn btn-ghost" href="#brief">Order this</a>
+      </div>
+      <div class="price pick">
+        <h3>Brand pack</h3>
+        <div class="amount">£1,499 <span>three films</span></div>
+        <ul>
+          <li>One cinematic film + two product films</li>
+          <li>Six social cutdowns across the three</li>
+          <li>One brief, one voice, one look</li>
+          <li>Unlimited changes inside 30 days</li>
+          <li>Delivered in 3 weeks</li>
+        </ul>
+        <a class="btn btn-primary" href="#brief">Order this</a>
+      </div>
+    </div>
+
+    <div class="addons">
+      <strong>Add to any package</strong>
+      <ul>
+        <li><b>+£89</b> — extra language version (native script &amp; voice)</li>
+        <li><b>+£59</b> — extra social cutdown</li>
+        <li><b>+£99</b> — 48-hour turnaround</li>
+        <li><b>+£129</b> — pitch-deck slides cut from the film</li>
+      </ul>
+    </div>
+
+    <div class="addons ppp">
+      <strong>India &amp; PPP markets</strong>
+      <ul>
+        <li><b>₹9,999</b> — Product film</li>
+        <li><b>₹19,999</b> — Cinematic film</li>
+        <li><b>₹34,999</b> — Brand pack</li>
+        <li><b>Free</b> — concept cut, same as above</li>
+      </ul>
+    </div>
+
+    <p class="fineprint">Prices in GBP, VAT not charged. Not sure which one you need? Send the brief anyway — you'll get a recommendation and a price, free.</p>
+  </div>
+</section>
+
+<section id="brief">
+  <div class="wrap">
+    <div class="sec-head"><h2>Start a video</h2></div>
+    <p class="sec-note">Tell me what you're selling and who it's for. You'll get a price and a delivery date within 24 hours — no call needed unless you want one.</p>
+    <form action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
+      <div class="grid2">
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email">
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="category">What do you need</label>
+          <select id="category" name="category" required>
+            <option value="">Choose one</option>
+            <option>Brand or place film</option>
+            <option>Product / SaaS explainer</option>
+            <option>Pitch or funding film</option>
+            <option>Music or story film</option>
+            <option>Language version of an existing film</option>
+            <option>Social cutdowns only</option>
+            <option>Not sure — recommend something</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="budget">Package</label>
+          <select id="budget" name="budget" required>
+            <option value="">Choose one</option>
+            <option>Free concept cut — start here</option>
+            <option>Product film — £399</option>
+            <option>Cinematic film — £799</option>
+            <option>Brand pack, three films — £1,499</option>
+            <option>India / PPP pricing</option>
+            <option>Bigger than this — let's talk</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="language">Language</label>
+          <input id="language" name="language" type="text" placeholder="English, Hindi, Bengali, Tamil…" value="English">
+        </div>
+        <div class="field">
+          <label for="deadline">Needed by</label>
+          <input id="deadline" name="deadline" type="date">
+        </div>
+      </div>
+      <div class="field">
+        <label for="brief_text">What are you selling, and who to?</label>
+        <textarea id="brief_text" name="brief" required placeholder="What the product is, who buys it, where the film will run, and any link to your site or existing footage."></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Send the brief</button>
+      <p class="formnote">Or email <a href="mailto:kanchan.g12@gmail.com">kanchan.g12@gmail.com</a> directly.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong>SmartPenny</strong> — AI video by Kanchan Ghosh, Leeds.<br>
+      <a href="https://www.youtube.com/@kanchanghosh1319" target="_blank" rel="noopener">YouTube channel</a> ·
+      <a href="mailto:kanchan.g12@gmail.com">kanchan.g12@gmail.com</a>
+    </div>
+    <div class="co">LOVEUAD LTD · Company No. 16838046 · Registered in England &amp; Wales</div>
+  </div>
+</footer>
+
+</body>
+</html>
